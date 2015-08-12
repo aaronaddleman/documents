@@ -3,7 +3,7 @@ require_relative 'document'
 describe "document" do
   before(:all) do
     
-    @full_doc = Document.new("Lego Land Adventures!", "Aaron Addleman", "Lego Land is a great place for people of all ages, well, actually you need to be 3 or older. Nah, never mind, its best for everyone.")
+    @full_doc = Document.new("Lego Land Adventures!", "Aaron Addleman", "Lego Land is a great place for people of all ages, well, actually you need to be 3 or older. Nah, never mind, its best for everyone. But what is the best place to be when you are 3 years or older?")
     @partial_doc = Document.new("War and Peace", "", "This is a long book...")
     @unknown_author = Document.new("Peter Rabbit", "", "Rabbits like carrots")
     @add_author = Document.new("Fish Bowl", "Cod Lopis", "This is the fish bowl where fish live...")
@@ -12,7 +12,7 @@ describe "document" do
   describe "a simple document" do
     
     it "should open count the words" do
-      expect(@full_doc.word_count).to eq(27)
+      expect(@full_doc.word_count).to eq(42)
     end
 
     it "should return an array of words from the content" do
@@ -45,6 +45,13 @@ describe "document" do
       @add_author.add_authors('Frodo','Gandolf')
       expect(@add_author.author.split(',').length).to eq(3)
     end
+  end
+  
+  describe 'index words' do
+    it "should locate index number for word starting from 0" do
+      expect(@full_doc.index_for("the")).to eq(30)
+    end
+    
   end
   
 end

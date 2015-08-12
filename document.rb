@@ -42,4 +42,10 @@ class Document
       "quick, get more ink for the presses!"
     end
   end
+
+  def index_for(word)
+    # could also use map
+    # could also use inject
+    words.find_index { |this_word| word == this_word }
+  end
 end
