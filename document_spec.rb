@@ -47,11 +47,16 @@ describe "document" do
     end
   end
   
-  describe 'index words' do
+  describe 'document information' do
     it "should locate index number for word starting from 0" do
       expect(@full_doc.index_for("the")).to eq(30)
     end
-    
+
+    it "should return the average word length" do
+      expect(@full_doc.average_word_length).to eq(3.6904761904761907)
+    end
   end
+
+
   
 end

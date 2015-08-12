@@ -48,4 +48,11 @@ class Document
     # could also use inject
     words.find_index { |this_word| word == this_word }
   end
+
+  def average_word_length
+    total = 0.0
+    words.each { |word| total += word.size }
+
+    total / word_count
+  end
 end
