@@ -16,6 +16,8 @@ class Document
     case title
     when "War and Peace"
       "Tolstoy"
+    when "Romeo and .*"
+      "Maybe Shakespeare?"
     else
       "Unknown"
     end
