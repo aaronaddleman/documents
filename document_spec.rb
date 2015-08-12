@@ -13,5 +13,8 @@ describe "document" do
       expect(@full_doc.word_count).to eq(27)
     end
 
+    it "should return an array of words from the content" do
+      expect(@full_doc.words.class).to eq(Array)
+    end
   end
 end
