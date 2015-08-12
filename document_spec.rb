@@ -5,6 +5,7 @@ describe "document" do
     
     @full_doc = Document.new("Lego Land Adventures!", "Aaron Addleman", "Lego Land is a great place for people of all ages, well, actually you need to be 3 or older. Nah, never mind, its best for everyone.")
     @partial_doc = Document.new("War and Peace", "", "This is a long book...")
+    @unknown_author = Document.new("Peter Rabbit", "", "Rabbits like carrots")
   end
 
   describe "a simple document" do
@@ -27,5 +28,12 @@ describe "document" do
       expect(@partial_doc.author).to eq("Tolstoy")
     end
   end
+
+  describe 'a document that has now known author' do
+    it "should set the author as 'Unknown'" do
+      expect(@unknown_author.author).to eq("Unknown")
+    end
+  end
+  
   
 end
