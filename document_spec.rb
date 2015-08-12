@@ -6,6 +6,7 @@ describe "document" do
     @full_doc = Document.new("Lego Land Adventures!", "Aaron Addleman", "Lego Land is a great place for people of all ages, well, actually you need to be 3 or older. Nah, never mind, its best for everyone.")
     @partial_doc = Document.new("War and Peace", "", "This is a long book...")
     @unknown_author = Document.new("Peter Rabbit", "", "Rabbits like carrots")
+    @add_author = Document.new("Fish Bowl", "Cod Lopis", "This is the fish bowl where fish live...")
   end
 
   describe "a simple document" do
@@ -35,5 +36,16 @@ describe "document" do
     end
   end
   
+  describe 'adding authors' do
+    it "should have only one author for now" do
+      expect(@add_author.author.split(',').length).to eq(1)
+    end
+
+    it "should have two authors when adding an author" do
+      @add_author.add_authors("Frodo Bagins")
+      @add_author.add_authors("Gandolf the Gray")
+      expect(@add_author.author.split(',').length).to eq(3)
+    end
+  end
   
 end

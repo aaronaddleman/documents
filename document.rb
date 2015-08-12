@@ -23,6 +23,10 @@ class Document
     end
   end
       
+  def add_authors(name)
+    @author += ", #{name}"
+  end
+
   def words
     @content.split
   end
