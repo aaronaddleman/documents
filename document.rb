@@ -50,9 +50,7 @@ class Document
   end
 
   def average_word_length
-    total = 0.0
-    words.each { |word| total += word.size }
-
+    total = words.inject(0.0) { |result, word| word.size + result }
     total / word_count
   end
 end
