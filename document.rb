@@ -57,4 +57,10 @@ class Document
   def obscure_times!
     @content.gsub!( /\d\d:\d\d (AM|PM)/, '**:** **')
   end
+
+  def about_me
+    puts "I am #{self}"
+    puts "My title is #{self.title}"
+    puts "I have #{self.word_count} words"
+  end
 end

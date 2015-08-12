@@ -66,6 +66,12 @@ describe "document" do
       expect(@doc_with_time.content.match(/(\d\d:\d\d) (?:AM|PM)/)).to eq(nil)
       expect(@doc_with_time.content.match(/(\*\*:\*\*) \*\*/).captures).to eq(["**:**"])
     end
+
+    it "should print information about the document" do
+      expect { @full_doc.about_me }.to output(/I am/).to_stdout
+      expect { @full_doc.about_me }.to output(/My title is Lego Land Adventures!/).to_stdout
+      expect { @full_doc.about_me }.to output(/I have 42 words/).to_stdout
+    end
   end
 
   
