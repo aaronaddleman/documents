@@ -4,7 +4,7 @@ describe "document" do
   before(:all) do
     
     @full_doc = Document.new("Lego Land Adventures!", "Aaron Addleman", "Lego Land is a great place for people of all ages, well, actually you need to be 3 or older. Nah, never mind, its best for everyone.")
-    
+    @partial_doc = Document.new("War and Peace", "", "This is a long book...")
   end
 
   describe "a simple document" do
@@ -21,4 +21,11 @@ describe "document" do
       expect(@full_doc.long?).to eq("this document is not very long")
     end
   end
+
+  describe 'a partial document' do
+    it "should pick an author for us" do
+      expect(@partial_doc.author).to eq("Tolstoy")
+    end
+  end
+  
 end

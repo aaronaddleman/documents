@@ -8,10 +8,19 @@ class Document
 
   def initialize(title=nil, author=nil, content=nil)
     @title = title
-    @author = author
+    @author = author.length > 0 ? author : find_author
     @content = content
   end
 
+  def find_author
+    case title
+    when "War and Peace"
+      "Tolstoy"
+    else
+      "Unknown"
+    end
+  end
+      
   def words
     @content.split
   end
