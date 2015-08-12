@@ -16,5 +16,9 @@ describe "document" do
     it "should return an array of words from the content" do
       expect(@full_doc.words.class).to eq(Array)
     end
+
+    it "should tell us this is a short document" do
+      expect(@full_doc.long?).to eq("this document is not very long")
+    end
   end
 end
