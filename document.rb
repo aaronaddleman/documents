@@ -23,8 +23,8 @@ class Document
     end
   end
       
-  def add_authors(name)
-    @author += ", #{name}"
+  def add_authors(*names)
+    @author += ",#{names.join(',')}"
   end
 
   def words

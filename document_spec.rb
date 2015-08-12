@@ -42,8 +42,7 @@ describe "document" do
     end
 
     it "should have two authors when adding an author" do
-      @add_author.add_authors("Frodo Bagins")
-      @add_author.add_authors("Gandolf the Gray")
+      @add_author.add_authors('Frodo','Gandolf')
       expect(@add_author.author.split(',').length).to eq(3)
     end
   end
