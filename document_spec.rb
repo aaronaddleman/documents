@@ -7,6 +7,7 @@ describe "document" do
     @partial_doc = Document.new("War and Peace", "", "This is a long book...")
     @unknown_author = Document.new("Peter Rabbit", "", "Rabbits like carrots")
     @add_author = Document.new("Fish Bowl", "Cod Lopis", "This is the fish bowl where fish live...")
+    @doc_with_time = Document.new("Log entries", "South Entrance", "03:42 AM - Door is open; 05:00 AM - Door is closed")
   end
 
   describe "a simple document" do
@@ -55,8 +56,17 @@ describe "document" do
     it "should return the average word length" do
       expect(@full_doc.average_word_length).to eq(3.6904761904761907)
     end
-  end
 
+    it "should contain time samples" do
+      expect(@doc_with_time.content.match(/(\d\d:\d\d) (?:AM|PM)/).captures).to eq(["03:42"])
+    end
+
+    it "should obscure time samples" do
+      @doc_with_time.obscure_times!
+      expect(@doc_with_time.content.match(/(\d\d:\d\d) (?:AM|PM)/)).to eq(nil)
+      expect(@doc_with_time.content.match(/(\*\*:\*\*) \*\*/).captures).to eq(["**:**"])
+    end
+  end
 
   
 end

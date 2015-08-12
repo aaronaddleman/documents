@@ -53,4 +53,8 @@ class Document
     total = words.inject(0.0) { |result, word| word.size + result }
     total / word_count
   end
+
+  def obscure_times!
+    @content.gsub!( /\d\d:\d\d (AM|PM)/, '**:** **')
+  end
 end
